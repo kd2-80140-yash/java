@@ -1,0 +1,33 @@
+package com.employee;
+
+public class Commission_Employee extends Employee
+{
+  private double grossrate;
+  private double commissionrate;
+  private double commission;
+  
+  public Commission_Employee()
+  {
+	  this.grossrate = 0.0;
+	  this.commissionrate = 0.0;
+	  this.commission = 0.0;
+	  
+  }
+
+public Commission_Employee(double grossrate, double commissionrate,String firstname,String lastname,int ssn)
+{
+	super(firstname,lastname,ssn);
+	this.grossrate = grossrate;
+	this.commissionrate = commissionrate;
+}
+
+@Override
+public void TotalCommission() 
+{
+	this.commission =this.commissionrate*this.grossrate;
+}
+
+
+
+  
+}
