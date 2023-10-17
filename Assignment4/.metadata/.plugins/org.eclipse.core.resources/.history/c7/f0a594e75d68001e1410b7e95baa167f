@@ -1,0 +1,17 @@
+package com.apps.fruits;
+
+public class Apple extends Fruit
+{
+public Apple(String colour,double weight,String name)
+{
+	  super(colour,weight,name);
+}
+
+@Override
+public String taste()
+{
+	return "sweet and taste";
+}
+  
+  
+}

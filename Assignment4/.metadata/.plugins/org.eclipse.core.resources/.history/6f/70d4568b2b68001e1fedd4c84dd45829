@@ -1,0 +1,15 @@
+package com.app.fruits;
+
+
+public class FruitBasket {
+    public static void main(String[] args) {
+        Fruit[] basket = new Fruit[10];
+        int counter = 0;
+
+        
+        basket[counter++] = new Mango("Alphonso", 0.2, "Yellow");
+        basket[counter++] = new Apple("Fuji", 0.3, "Red");
+        basket[counter++] = new Orange("Valencia", 0.25, "Orange");
+
+    }
+}

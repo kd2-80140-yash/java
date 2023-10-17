@@ -1,0 +1,106 @@
+package com.apps.fruits;
+
+import java.util.Scanner;
+
+public class FruitBasket {
+
+	public static void main(String [] ergs) {
+		Scanner sc = new Scanner(System.in);
+		Fruit [] basket = new Fruit[10];
+		int counter = 0;
+		
+		while(true) {
+			System.out.println("options");
+			System.out.println("0.exit");
+			System.out.println("1. Add Mango");
+			System.out.println("2. Add Orange");
+			System.out.println("3. Add Apple");
+			System.out.println("4. Display names of fruits in the basket");
+			System.out.println("5. Display details of fresh fruits in basket");
+			System.out.println("6. Mark a fruit as a stale");
+			System.out.println("7. Display tastes of stale fruits");
+			System.out.println("enter your choice");
+			
+			int choice = sc.nextInt();
+			
+			if (choice == 0) {
+				break;
+			}
+			switch(choice) {
+			
+			case 1:
+				if (counter < basket.length) {
+					System.out.println("enter the mango name");
+					String name = sc.next();
+					System.out.println("enter mango weight");
+					double weight = sc.nextDouble();
+					System.out.println("enter the color");
+					String color = sc.next();
+					basket[counter++] = new Mango(name , weight ,color);
+					System.out.println("mango added");
+				}else {
+					System.out.println("basket is fullll");
+				}
+				break;
+				
+			case 2:
+				if (counter < basket.length) {
+					System.out.println("enter the orange name");
+					String name = sc.next();
+					System.out.println("enter orange weight");
+					double weight = sc.nextDouble();
+					System.out.println("enter the color");
+					String color = sc.next();
+					basket[counter++] = new Orange(name , weight ,color);
+					System.out.println("orange added");
+				}else {
+					System.out.println("basket is fullll");
+				}
+				break;
+				
+			case 3:
+				if (counter < basket.length) {
+					System.out.println("enter the apple name");
+					String name = sc.next();
+					System.out.println("enter apple weight");
+					double weight = sc.nextDouble();
+					System.out.println("enter the color");
+					String color = sc.next();
+					basket[counter++] = new Apple(name , weight ,color);
+					System.out.println("apple added");
+				}else {
+					System.out.println("basket is fullll");
+				}
+				break;
+				
+			case 4:
+				System.out.println("names of fruit in basket");
+				for (int i =0; i< counter; i++) {
+					System.out.println(basket[i].getName());
+				}
+				break;
+				
+			case 5:
+				System.out.println("details of the fruits in basket");
+				for (int i=0; i<counter; i++) {
+				if (basket[i].isFresh()) {
+                    System.out.println(basket[i].toString() + ", Taste: " + basket[i].taste());
+				}
+				}
+				break;
+			case 6:
+                // Mark a fruit as stale
+                break;
+            case 7:
+                // Display tastes of stale fruits
+                break;
+            default:
+                System.out.println("Invalid choice. Please try again.");
+                break;
+			}
+		}
+		sc.close();
+	}
+	
+	
+}

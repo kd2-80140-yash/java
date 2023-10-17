@@ -1,0 +1,20 @@
+package com.app.fruits;
+
+import com.app.fruits.Apple;
+
+import com.app.fruits.Fruit;
+import com.app.fruits.Mango;
+import com.app.fruits.Orange;
+
+public class FruitBasket {
+    public static void main(String[] args) {
+        Fruit[] basket = new Fruit[10];
+        int counter = 0;
+
+        
+        basket[counter++] = new Mango("Alphonso", 0.2, "Yellow");
+        basket[counter++] = new Apple("Fuji", 0.3, "Red");
+        basket[counter++] = new Orange("Valencia", 0.25, "Orange");
+
+    }
+}

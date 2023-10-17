@@ -1,0 +1,24 @@
+package com.app.fruits;
+
+import com.app.fruits.Apple;
+import com.app.fruits.Fruit;
+import com.app.fruits.Mango;
+import com.app.fruits.Orange;
+
+public class FruitBasket {
+    public static void main(String[] args) {
+        Fruit[] basket = new Fruit[10]; // You can change the basket size as needed
+        int counter = 0;
+
+        // ... Prompt the user for options (1. Add Mango, 2. Add Orange, etc.)
+        // You should also handle boundary checking and add fruits to the basket accordingly.
+
+        // Example of adding fruits to the basket:
+        basket[counter++] = new Mango("Alphonso", 0.2, "Yellow");
+        basket[counter++] = new Apple("Fuji", 0.3, "Red");
+        basket[counter++] = new Orange("Valencia", 0.25, "Orange");
+
+        // ... Display names, details, and tastes of fruits, and mark fruits as stale.
+        // Handle all menu options based on user input.
+    }
+}
