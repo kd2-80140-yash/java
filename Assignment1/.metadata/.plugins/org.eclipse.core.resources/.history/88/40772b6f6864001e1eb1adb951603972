@@ -1,0 +1,88 @@
+import java.util.*;
+
+	public class q3_ans {
+	    static int menu() {
+	        Scanner sc = new Scanner(System.in);
+	        System.out.println("1.Dosa (Rs.60)");
+	        System.out.println("2.Samosa(Rs.20)");
+	        System.out.println("3.Idli(Rs.30)");
+	        System.out.println("4.Pav bhai(Rs.100)");
+	        System.out.println("5.Misal pav(Rs.80)");
+	        System.out.println("6.Upma(Rs.25)");
+	        System.out.println("7.Poha(Rs.25)");
+	        System.out.println("8.Uthappa(Rs.50)");
+	        System.out.println("9.Cut Dosa(Rs.70)");
+	        System.out.println("10.Generate bill and Exit");
+	        System.out.print("Enter your choice: ");
+	        return sc.nextInt();
+	    }
+
+	    public static void main(String[] args) {
+	        Scanner sc = new Scanner(System.in);
+	        int sum = 0;
+	        int qty;
+	        int choice;
+
+	        while (true) {
+	            choice = menu();
+	            switch (choice) {
+	                case 1:
+	                    System.out.println("Enter the quantity of dosa");
+	                    qty = sc.nextInt();
+	                    sum = sum + 60 * qty;
+	                    break;
+	                case 2:
+	                    System.out.println("Enter the quantity of samosa");
+	                    qty = sc.nextInt();
+	                    sum = sum + 20 * qty;
+	                    break;
+	                case 3:
+	                    System.out.println("Enter the quantity of idli");
+	                    qty = sc.nextInt();
+	                    sum = sum + 30 * qty;
+	                    break;
+	                case 4:
+	                    System.out.println("Enter the quantity of Pav Bhaji");
+	                    qty = sc.nextInt();
+	                    sum = sum + 100 * qty;
+	                    break;
+	                case 5:
+	                    System.out.println("Enter the quantity of Misal pav");
+	                    qty = sc.nextInt();
+	                    sum = sum + 80 * qty;
+	                    break;
+	                case 6:
+	                    System.out.println("Enter the quantity of upma");
+	                    qty = sc.nextInt();
+	                    sum = sum + 25 * qty;
+	                    break;
+	                case 7:
+	                    System.out.println("Enter the quantity of poha");
+	                    qty = sc.nextInt();
+	                    sum = sum + 25 * qty;
+	                    break;
+	                case 8:
+	                    System.out.println("Enter the quantity of uthappa");
+	                    qty = sc.nextInt();
+	                    sum = sum + 50 * qty;
+	                    break;
+	                case 9:
+	                    System.out.println("Enter the quantity of cut dosa");
+	                    qty = sc.nextInt();
+	                    sum = sum + 70 * qty;
+	                    break;
+	                case 10:
+	                    System.out.println("Total bill: " + sum);
+	                    System.exit(0); // Exit the program
+	                    break;
+	                default:
+	                    System.out.println("Invalid choice");
+	            }
+	        }
+	    }
+	}
+
+
+	}
+
+}

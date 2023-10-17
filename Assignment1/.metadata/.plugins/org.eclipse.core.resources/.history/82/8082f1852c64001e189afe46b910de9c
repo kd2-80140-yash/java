@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class q1_ans {
+
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the number : ");
+		
+		int number = sc.nextInt();
+		
+		System.out.println("Given number"+number);
+		
+		String binaryEquivalent = Integer.toBinaryString(number);
+		
+		System.out.println("binaryEquivalent"+binaryEquivalent);
+		
+		String octalEquivalent = Integer.toOctalString(number);
+		
+		System.out.println("octalEquivalent"+octalEquivalent);
+		
+		String hexadecimalEquivalent = Integer.toHexString(number);
+		
+		System.out.println("hexadecimalEquivalent"+hexadecimalEquivalent);
+		
+		
+		
+
+	}
+
+}
