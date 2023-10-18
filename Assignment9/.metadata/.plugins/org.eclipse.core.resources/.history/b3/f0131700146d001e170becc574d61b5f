@@ -1,0 +1,109 @@
+package com.sunbeam;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
+
+class Book {
+    String isbn;
+    double price;
+    String authorName;
+    int quantity;
+
+    public void accept() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter ISBN: ");
+        isbn = scanner.next();
+        System.out.print("Enter Price: ");
+        price = scanner.nextDouble();
+        System.out.print("Enter Author Name: ");
+        authorName = scanner.next();
+        System.out.print("Enter Quantity: ");
+        quantity = scanner.nextInt();
+    }
+
+    @Override
+    public String toString() {
+        return "ISBN: " + isbn + ", Price: " + price + ", Author: " + authorName + ", Quantity: " + quantity;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Book other = (Book) obj;
+        return isbn.equals(other.isbn);
+    }
+}
+
+public class BookDetails {
+    public static void main(String[] args) {
+        List<Book> list = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        Book b;
+        int choice;
+
+        do {
+            System.out.println("Menu:");
+            System.out.println("1. Add new book");
+            System.out.println("2. Display all books");
+            System.out.println("3. Delete a book at a given index");
+            System.out.println("4. Check if a book with given ISBN is in the list");
+            System.out.println("5. Delete all books");
+            System.out.println("6. Display the number of books");
+            System.out.println("7. Sort all books by price in descending order");
+            System.out.println("0. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1: // add book
+                    b = new Book();
+                    b.accept();
+                    list.add(b);
+                    break;
+                case 2: // display all
+                    for (Book bk : list)
+                        System.out.println(bk);
+                    break;
+                case 3: // remove at index
+                    System.out.print("Enter index at which element to be deleted: ");
+                    int index = scanner.nextInt();
+                    if (index >= 0 && index < list.size()) {
+                        list.remove(index);
+                    } else {
+                        System.out.println("Invalid index.");
+                    }
+                    break;
+                case 4: // check if book is present
+                    System.out.print("Enter ISBN to check: ");
+                    String isbn = scanner.next();
+                    Book key = new Book();
+                    key.isbn = isbn;
+                    if (list.contains(key)) {
+                        System.out.println("Book found.");
+                    } else {
+                        System.out.println("Book not found.");
+                    }
+                    break;
+                case 5: // delete all books
+                    list.clear();
+                    break;
+                case 6: // display number of books
+                    System.out.println("Number of books: " + list.size());
+                    break;
+                case 7: // sort by price descending
+                    list.sort(new Comparator<Book>() {
+                        @Override
+                        public int compare(Book b1, Book b2) {
+                            return Double.compare(b2.price, b1.price);
+                        }
+                    });
+                    break;
+            }
+        } while (choice != 0);
+    }
+}
+
+

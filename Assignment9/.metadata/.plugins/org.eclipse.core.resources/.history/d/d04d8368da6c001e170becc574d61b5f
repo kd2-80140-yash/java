@@ -1,0 +1,38 @@
+package assignment9_1;
+
+public class Assignment9_1 
+{
+	public static <T extends Number> T findMin(T[] arr) {
+        if (arr == null || arr.length == 0) {
+            return null;
+        }
+
+        T min = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i].doubleValue() < min.doubleValue()) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
+    public static void main(String[] args) {
+        Integer[] intArray = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};
+        Double[] doubleArray = {3.14, 2.71, 1.414, 0.577, 2.718};
+        
+        Integer minInt = findMin(intArray);
+        Double minDouble = findMin(doubleArray);
+
+        if (minInt != null) {
+            System.out.println("Minimum Integer: " + minInt);
+        } else {
+            System.out.println("Integer array is empty or null.");
+        }
+
+        if (minDouble != null) {
+            System.out.println("Minimum Double: " + minDouble);
+        } else {
+            System.out.println("Double array is empty or null.");
+        }
+    }
+}
