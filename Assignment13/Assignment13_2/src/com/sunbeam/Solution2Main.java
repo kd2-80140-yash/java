@@ -18,7 +18,8 @@ public class Solution2Main
 {
 	private static void saveBooksToFile() 
 	{
-		try(FileOutputStream fout = new FileOutputStream("books.txt"))
+		List<Book> list = new ArrayList<>();
+		try(FileOutputStream fout = new FileOutputStream("yash.bin"))
 				{
 			       try(ObjectOutputStream oout = new ObjectOutputStream(fout))
 			       {
@@ -36,7 +37,7 @@ public class Solution2Main
 	private static void loadBooksFromFile()
 	{
 		List<Book>list;
-		try(FileInputStream fin = new FileInputStream("books.txt"))
+		try(FileInputStream fin = new FileInputStream("yash.bin"))
 		{
 			try(ObjectInputStream oin = new ObjectInputStream(fin)) 
 			{
@@ -48,6 +49,7 @@ public class Solution2Main
 		{
 			e.printStackTrace();
 		}
+		System.out.println("Books loaded");
 		
 		
 	}

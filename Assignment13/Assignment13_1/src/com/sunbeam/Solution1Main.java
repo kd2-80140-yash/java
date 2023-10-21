@@ -13,20 +13,21 @@ import java.util.Scanner;
 
 public class Solution1Main 
 { 
-	
-	private static void saveBooksToFile(List<Book> list, String saveFileName)
+	private static List<Book> list = new ArrayList<>();
+	private static void saveBooksToFile()
 	{
-		try(FileOutputStream fout = new FileOutputStream("Book.db"))
+		try(FileOutputStream fout = new FileOutputStream("Book.txt"))
 		{
 			try(DataOutputStream dout = new DataOutputStream(fout)) 
 			{
-				for (Book b : list) 
+				for (Book b: list) 
 				{
-					dout.writeUTF(b.getIsbn());
-					dout.writeUTF(b.getAuthorName());
-					dout.writeDouble(b.getPrice());
-					dout.writeInt(b.getQuantity());
+					 dout.writeUTF(b.getIsbn());
+	                    dout.writeUTF(b.getAuthorName());
+	                    dout.writeDouble(b.getPrice());
+	                    dout.writeInt(b.getQuantity());
 				}
+				
 		}//dout.close();
 			
 	}//fout.close();
@@ -39,9 +40,9 @@ public class Solution1Main
 	}
 	
 
-	private static  List<Book> loadBooksFromFile(String loadFileName) 
+	private static void loadBooksFromFile()
 	{
-		try(FileInputStream fin = new FileInputStream("Book.bin"))
+		try(FileInputStream fin = new FileInputStream("Book.txt"))
 		{
 			try(DataInputStream din = new DataInputStream(fin))
 			{
@@ -67,7 +68,7 @@ public class Solution1Main
 		
 		System.out.println("Books loaded");
 		
-		return null;
+		
 	}
 	
 	
@@ -82,8 +83,7 @@ public class Solution1Main
 		Book b;
 		int choice = 0;
 		
-		saveBooksToFile(list, null);
-		loadBooksFromFile(null);
+		
 		
 		
 		
@@ -182,13 +182,13 @@ public class Solution1Main
             case 7:
             	System.out.println("Enter the file name to save books : ");
             	String saveFileName = sc.next();
-            	saveBooksToFile(list,saveFileName);
+            	saveBooksToFile();
             	break;
             	
             case 8:
             	System.out.println("Enter the file name to load books :");
             	String loadFileName = sc.next();
-            	list = loadBooksFromFile(loadFileName);
+            	 loadBooksFromFile();
             	break;
             }
 			
